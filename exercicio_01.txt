@@ -1,0 +1,54 @@
+Fábrica de utensílios de metal
+
+1) Modelo explícito
+
+--> Variáveis:
+    x1: Quantidade produzida do produto 1
+    x2: Quantidade produzida do produto 2
+    x3: Quantidade produzida do produto 3
+
+--> Max lucro
+    Lucro: Receita - Custo
+    max (10-6)x1 + (25-15)x2 + (20-14)x3
+    max 4x1 + 10x2 + 6x3
+
+s.a.
+    Taxa de produção:
+    0,03x1 + 0,15x2 + 0,1x3  <= 400
+    0,05x1 + 0,12x2 + 0,1x3  <= 400
+    0,05x1 + 0,1x2  + 0,12x3 <= 500
+             2x2    + 1,2x3  <= 2000
+
+    quantidade produzida:
+    1000 <= x1 <= 6000
+    0    <= x2 <= 500
+     100 <= x3 <= 1000
+
+    x1,x2,x3 E Z+      (x1,x2,x3 pertencem aos números inteiros)
+
+2) Modelo algébrico
+    n produtos
+    m recursos
+
+--> Variáveis de decisão
+    Xi: Quantidade produzida do produto i. i=1,...,n
+
+--> Parâmetros
+    Pi:  Preço do produto               i=1,...,n
+    Ci:  Custo do produto               i=1,...,n
+    Li:  Limite mínimo de vendas        i=1,...,n
+    Ui:  Limite máximo de vendas        i=1,...,n
+    Dj:  Disponibilidade do recurso     j=1,...,m
+    Qji: Quantidade do recurso j 
+         consumido no produto i         i=1,...,n e j=1,...,m
+
+    Obs: Qji --> j representa linha e i coluna
+
+--> Modelo
+    max Σ(Pi-Ci)xi       i=1 
+
+s.a.
+    ΣQjiXi <= Dj         i=1             j=1,...,m
+    Li <= x1 <= Ui                      i=1,...,n
+
+    Xi E Z+
